@@ -1,0 +1,87 @@
+--------------------------------------------------------------------------
+
+*Command Line = any interface that is used by entering textual commands (gen. Windows centric)
+*Terminal = This is a type of commands line (gen. Mac centric)
+*Console = A command-line interface used to work with your computer
+*Shell = A program running on terminal
+*Bash = A popular shell or Mac OS/Linux
+*Z-Shell = Another shell(default)
+
+--------------------------------------------------------------------------
+
+--------/*Basic commands*/
+
+(1). ls => list files (show my files)
+(2). pwd => print working directory (where am i?)
+(3).clear => clear section
+
+--------/*Navigation:- inside and outside directiories*/
+
+(4). cd => change directiories
+/*syntax :-  cd foldername*/
+
+(5). cd .. => out from change directory (one step back)
+/*syntax :-  cd foldername*/
+cd ../.. => (two step back)
+cd ../../.. => (three step back)
+
+--------/*Paths*/
+
+(6). cd Desktop/Delta => relative path (not work on every directiories.it depends on current directories)
+(7). cd /Users/Gaganshuyadav/Desktop => absolute path (work on every directory) 
+(8). cd / => root directory
+(9). cd ~ => home directory
+
+--------/*Making Directories*/
+
+(10). mkdir => make directory (means make folders)
+(11). mkdir Documents/newgaganfolder/Hello2 => (use absolute path to make directory(folder) )
+
+--------/*Flags:- Flags are characters that we pass with commands to modify their behaviour*/
+
+--/*manual Command*/
+(12). man ls => give info about ls command
+(13). man mkdir => give info about mkdir command
+
+/ls command list/
+    ls -a	    list all files including hidden file starting with '.'
+    ls --color	colored list [=always/never/auto]
+    ls -d	    list directories - with ' */'
+    ls -F	    add one char of */=>@| to enteries
+    ls -i	    list file's inode index number
+    ls -l	    list with long format - show permissions
+    ls -la	    list long format including hidden files(use both -l and -a)
+    ls -lh	    list long format with readable file size
+    ls -ls	    list with long format with file size
+    ls -r	    list in reverse order
+    ls -R	    list recursively directory tree
+    ls -s	    list file size
+    ls -S	    sort by file size
+    ls -t	    sort by time & date
+    ls -X	    sort by extension name
+
+--------/*Touch Command :- used to create files*/
+
+(14).touch index.html
+(15).touch index.js
+(16).touch index.txt
+(17).touch index.css
+(18).touch index
+
+--------/*Deleting Files and Folders*/
+
+(19). rm => remove files
+(20). rmdir => removes empty folders
+(21). rm -rf => removes any folders
+
+/rm command list/
+    rm -f: Forces the removal of all files or directories.
+    rm -i: Prompts for confirmation before removing.
+    rm -I: Prompts once before removing more than three files or when removing recursively.
+    rm -r: Removes directories and their content recursively.
+    rm -d: Removes empty directories.
+    rm -v: Provides a verbose output.
+    rm -rf: removes any folders
+    rm --help: Displays the help text.
+    rm --version: Displays the command version.
+

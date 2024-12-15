@@ -1,0 +1,105 @@
+
+--------/*Configuring Git*/                                    /*git config --list :-to see the details*/
+(1). git config --global user.name "My Name"
+(2). git config --global user.email "someone@email.com"
+
+--------/*Basic Commands*/
+(3). clone - cloning a respository in our local machine.     /* Syntax:- git clone <-some link-> */
+(4). status - displays the state of the code                 /* Syntax:- git status */
+
+--------/*Basic Commands*/
+(5). add - adds new or changed files in your working directory to the Git staging area.     /* git add <-file name-> */ 
+(6). add all files - to add all files in command.                                           /* git add . */
+(7). commit - it is the new record of change.                                               /* git commit -m "some message" */
+                                                                                            /* git remote add origin <-link-> */
+(8). push - upload local repo content to remote repo.                                       /* git push origin main */                 /* git pull --rebase origin main 
+                                                                                                                                          git push origin main       */
+ 
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------/*Basic commands to push local repo*/
+
+(9). init - used to create a new git repo.     /* git init */
+
+        
+        git remote add origin <-link->
+        git remote -v     (to verify remote)
+        git branch     (to check branch)
+        git branch -M main     (to rename branch)
+        git push origin main
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------/*shortcuts in git*/
+(10). git commit -am "some message" => used to add and commit in changed file.
+
+(11). git push -u origin main => after using this ,when you change another file , you can only write (git push) and your file is uplaod in remote repo.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------/*Branch Commands*/
+
+(12). git branch     (to check branch)
+(13). git branch -M <-branch name->     (to rename branch)
+(14). git checkout <-branch name->     (to navigate)
+(15). git checkout -b <-branch name->     (to create new branch)
+(16). git branch -d <-branch name->     (to delete branch)
+
+(17). git push origin <-branch name->     ( upload local repo content to remote repo. )
+
+(18). git push --set-upstream origin <-branch name->     (after write this we can use (git push) shortcuts)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------/*Merging Code*/
+
+(19). git diff <-branch name->     (to compare commits,branches,files and more)
+(20). git merge <-branch name->     (to merge 2 branches)
+             OR
+        Create a PR                 (Pull Request :- it lets you tell others about changes you've pushed to a branch in a respository on Github.)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------/*Basic command for git pull*/
+
+(21). git pull origin main    => (upload remote repo content to local repo. )
+
+used to fetch and download content from a remote repo and immediately update the local repo to match that content.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------/*Merge Conflicts*/
+An event that takes place when Git is unable to automatically resolve differences in code between two commits.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+--------/Fixing Mistakes*/
+
+Case 1: staged changes     (for one file add or staged)
+        git reset <-file name->
+        git reset
+
+Case 2: commited changes     (for one commit)
+        git reset HEAD~1
+
+Case 3: commited changes     (for many commits) 
+        git reset <-commit hash->
+        git reset --hard <-commit hash->   (remove extra changes also)
+        -------------------------------------------------------------------------------------------------------------------
+        || (git log) :- it shows the commit logs and also it have the commit hast which is used to reset the commits.    ||
+        ||              press q to exit from git log.                                                                    || 
+        -------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------/*Forking*/
+A fork is a new repository that shares code and visibility settings with the original "upstream" repository.
+
+Fork is a rough copy.
+
+
+
+

@@ -1,0 +1,313 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+
+college> db.student.find()
+[
+  {
+    _id: ObjectId('66236c46790d0bccb8117b7b'),
+    name: 'adam',
+    age: 19,
+    marks: 79
+  },
+  {
+    _id: ObjectId('66236d79790d0bccb8117b7c'),
+    name: 'bob',
+    city: 'Delhi',
+    marks: 75
+  },
+  {
+    _id: ObjectId('66238c39790d0bccb8117b7d'),
+    name: 'catlyn',
+    marks: 64,
+    city: 'Delhi'
+  },
+  {
+    _id: ObjectId('66238c3a790d0bccb8117b7e'),
+    name: 'donald',
+    marks: 58,
+    city: 'Mumbai'
+  }
+]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+
+<!--(The Shell)-->
+mongosh                   //to start
+help                      
+cls
+(1). show dbs                  //to show  database
+exit
+quit
+--------------------------------------
+"apnalaptop".toUpperCase()
+APNALAPTOP
+2+5
+7
+--------------------------------------
+(2). use college               //to create and use a new database called "college".(the created database is temporarily stored if we are not stored any data).
+db                        //to show current database
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+
+<!--(BSON DATA)-->
+Binary object notation:- read by Machine only. addiditional data support like Date,Bindata. (parsing is easy in BSON as comapared to JSON).
+BSON allows it to be traversed much more quickly compared to JSON.
+
+<!--(JSON DATA)-->
+ is a Human-readable data interchange format ,widely popular standard for data interchange on the web.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+<!--(Document)-->                                       //rows
+Mongo stores data in the form of documents (BSON docs)
+<!--(Collection)-->                                     //table
+Mongo stores documents in collections.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+
+(3). db.collection.insertOne()     //Inserts a single document into a collection.
+(4). db.collection.insertMany()    //Inserts multiple documents into a collection.
+
+if a collection does not exist ,MongoDB creates the collection when you first store data for that collection.
+
+(5). show collections
+
+db.student.insertOne({ name:"adam",marks:79 })
+db.student.find( )
+
+db.student.insertMany([{ name: "catlyn",marks : 64, city : "Delhi"},{name:"donald",marks:58,city:"Mumbai"}])
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+<!--( Find in DB)-->
+
+(6). db.collection.find()           //returns everything
+
+//for specific Queries
+(7). db.collection.find({ key:value })        //return cursor(reference to original) [ {}, {}, {}, {}]
+(8). db.collection.findOne({ key:value })     //return actual document    { }
+
+ db.student.find({city:"Delhi"})
+ db.student.find({city:"Delhi",marks:75})
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+<!--( Find in DB Query Operators)-->
+//Comparison operators:- $eq,$gt,$gte,$in,$lt,$lte,$ne,$nin
+//Logical operators:- $and,$not,$nor,$or
+
+db.student.find({marks:{$gt:63}})                        // find students where marks>63
+db.student.find({marks:{$eq:64}})                        // find students where marks=64
+db.student.find({city: {$in: ["Delhi", "Mumbai" ]} } )   // find students who live in Delhi or Mumbai
+db.student.find({city: {$nin: ["Delhi","Mumbai"]}})      // find students who not live in Delhi or Mumbai
+db.student.find({marks: {$gte :75}})                     // find students who scored > 75
+db.student.find({marks: {$lte: 75}})                     // find students who scored <= 75 
+db.student.find({$or: [{marks: {$gte:75}},{city:"Delhi"}]}) //find students who scored>=75 or live in Delhi 
+db.student.find({$and: [{marks:{$gte:75}},{city:"Delhi"}]}) //find students who scored>=75 and live in Delhi
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+<!--( UPDATE in DB)-->
+
+(9). db.collection.updateOne()       //Updates at most a single document that match a specified filter even through multiple documents may match the specified filter.
+db.collection.updateOne( <filter>,<update>,<options>)
+
+<!--( UPDATE operators)-->
+$addFields,$set,$project,$unset,$replaceRoot,$replaceWith
+
+//Example:-
+db.student.updateOne({name:"adam"},{$set:{marks:95}})
+
+(10). db.collection.updateMany()     //Update all documents that match a specified filter.
+(11). db.collection.replaceOne()     //Replaces at most a single document that match a specified filter even though multiple documents may match the specified filter.
+
+//Example:-
+db.student.updateMany({city:"Delhi"},{$set: {city:"New Delhi"}})
+db.student.replaceOne({name:"donald"},{name:"gagan",marks:100,state:"UttarPradesh"})
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+<!--( Nesting )-->
+
+//Example:-
+db.student.insertOne({name:"aman",performance: {marks:90,grade:"A"}})
+college> db.student.find({"performance.marks":90})
+db.student.find({"performance.grade":"A"})
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+<!--( Delete in DB )-->
+deleteOne
+db.collection.deleteOne( <filter>,<options>)
+//Example:-
+db.student.deleteOne({name:"aman"})
+-----------------------
+deleteMany
+db.collection.deleteMany( <filter>,<options>)
+//Example:-
+db.student.deleteMany({marks: {$gt: 75}})
+-----------------------
+<!--( Delete all documents)-->
+
+db.student.deleteMany({})
+
+-----------------------
+<!--( Delete database or drop database )-->
+
+db.dropDatabase()
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+
+        <|-----------------( Mongoose )-----------------|>
+
+A library that creates a connection between MongoDB and Node.js javascript Runtime Environment.
+It is an ODM (Object Data Modeling) Library.
+
+        <|-----------------( Mongoose install and connection )-----------------|>
+
+npm install Mongoose
+const mongoose = require("mongoose");
+
+main()
+  .then( () => {
+    console.log("connection successful");
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+
+async function main() {
+    await mongoose.connect("mongodb://127.0.0.1:27017/test");
+}
+
+        <|-----------------( Schema )-----------------|>
+
+Schema defines the shape of the documents within that collection.
+
+const userSchema  = new mongoose.Schema({
+    name: String,
+    email: String,
+    age: Number,
+})
+        <|-----------------( Models )-----------------|>
+
+Model in mongoose is a class with which we construct documents.
+
+const User = mongoose.model("User", userSchema);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+        <|-----------------( Insert )-----------------|>
+
+
+const user1 = new User({ name: "Adam", email: "adam@yahoo.in", age: 48 });
+
+const user2 = new User({ name: "Eve", email: "eve@yahoo.in", age: 50 });
+
+user1.save()    //to save in DB
+user2.save()    //to save in DB
+
+<|-------( Insert Multiple )-------|>
+
+User.insertMany([
+    {name: "Tony",email: "tony@gmail.com",age: 50},
+    {name: "Peter",email: "peter@gmail.com",age: 30},
+    {name: "Bruce",email: "bruce@gmail.com",age: 47},
+]).then( res => {
+    console.log(res);
+})
+
+
+<|-------( Note )-------|>
+Mongoose uses Operation Buffering
+
+Mongoose lets you start using your models immediately, without waiting for mongoose to establish a connection to MongoDB.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+        
+        <|-----------------( find , findOne and findById )-----------------|>
+
+<-----( Find )----->
+Model.find()     //return a Query Object (thennable)
+*Mongoose Queries are not promises. But they have a .then() and .catch()
+
+User.find().then((data) => {
+    console.log(data);
+})
+
+User.find({ age: {$gt: 47}}).then((data) => {
+    console.log(data);
+})
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+        
+        <|-----------------( Update )-----------------|>
+
+
+Model.updateOne()
+Model.updateMany()
+Model.findOneAndUpdate()
+Model.findOneAndUpdate([conditional],[update],[option])     //{new: true}
+Model.findByIdAndUpdate()
+
+        <|-----------------( Delete )-----------------|>
+
+
+Model.deleteOne()
+Model.deleteMany()
+Model.findOneAndDelete()
+Model.findByIdAndDelete()
+
+
+
+
+
+
+
+find do:- collection Scan
+
+
+indexes are stored in a B-tree data structure 
+self-balancing tree data structure
+indexing in allow to  quickly locate and access the data without scanning every document in a collection.
+
+advantages
+index keys
+pointers to the documents in the collection
+search query through b-tree
+
+disadavtages
+space  and storage use
+somethimes complex for large distributed system
+
+types
+
+singe field index
+compound index
+multiple keys index
+
+
+queries:-
+db.teachers.createIndex({ age:1})
+age_1
+db.teachers.getIndexes()
+ad.teachers.dropIndex()
+
+when we not use indexes
+collestion is small
+coolection is frequently updateed
+when queries are complex(multiple fields)
+when the collection is large
+
+
+
+the aggregation process in momgodb consists of several stages, each stage transforming the data in some way.
+
+duplication of data is called replication( asynshrronous)
+
+vertical scaling:- limited(single machine)
+sharging:- horizontal scaling (multiple machine)( distributed)
+
+
+
+
+
+
+
+
+
+

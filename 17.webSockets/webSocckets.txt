@@ -1,0 +1,67 @@
+websocket/http/ftp/smtp ( bi-directional) ( TCP) ( real-time and low latency connection ) | a friend(http server) who help her friend(websocket of server) to connect with girl( client).   and then after connecting them gone from the room. and then the couples will spend time(like in real-time).
+
+1.Handshake(->) :- the client sends a http request to server, requesting a websocket connection upgrade
+2.upgrade(<-) :- the server responds with http response, agrees that upgrade connection.
+3.established(<->) connection:- bi-directional.
+
+why http server?
+websockets only require an http server to established the initial connection, after connection their is no longer bound by the http request-response cycle.
+
+why not express only?
+express designed to handle http request and response, it does's not provide the necessary functionality to handle the --http handshake-- and --upgrade request-- to established connection.
+( client send an request with special header("upgrade websocket) to the server, the server must responds with special http response ( _ _101 switching protocols_ _)  to indicate willing to upgrade the connection). [ connection has switched from http  to websocket].
+
+TCP ports:- HTTP(80),  FTP(21),  SSH(secure shell(22)),  HTTPS(443),  SMTP(25),  DNS(53)
+  --TCP is connection-oriented , which means a connection is established before data is sent, 
+  --data is guatanted to be delivere
+  --correct order
+  --error-checking
+  --slower(high overhead)
+  --maintaining connection 
+  --file, email, web browsing
+
+UDP ports:- 
+  --connectionless, which means connection is not established before data is sent
+  --no guarantee of delivered or order
+  --no-error checking
+  --faster( low overhead)
+  --simple req-res transactions
+  --video streaming , gaming
+  --[ flow(no overwhelming) and congestion(traffic) control]
+  DNS(53),  
+  DHCP(Dynamic Host configuration protocol(67)[ used for assigning ip to devices on network]),  
+  DHCP(Dynamic Host configuration protocol(68)[ used for receiving ip from a DHCP server]),  
+  NTP( network Time Protocol(123)[ used for synchronizing clock times between devices network]), 
+  SNMP( simple netwrok management protocol(161,162)[ 161:- used for managing and monitoring network, 162:- used for receiving SNMP traps(notification) from netwrok devices])
+
+UDP needs DHCP BUT NOT TCP:- broadcast, multicast, provide quick ip addresses, error-tolerant( handle-error( continue working when error occurs), retransmits requests)
+
+/----------------------------/
+
+io => entire circuit
+socket => particular user
+
+/----------------------------/
+
+emit => event trigger(emit this event)(data send)
+on => listener(data receiver)
+
+/----------------------------/
+
+broadcast( send data to all users rather then request maker)            [ socket.broadcast.emit]
+
+/----------------------------/
+
+To => to trigger event for particular room (personal message)    [ socket.to("idOfReceiver").emit() ] 
+Join => To Join People in particular room  ( group )             [ socket.join("roomName") ]
+
+/----------------------------/
+
+client                                                       |              server
+                                                             | 
+socket.on(event, (m) => { console.log("message",m) })        |              io.emit(event, "hi")      [ sab pa jayaga message]
+                                                             |
+socket.emit( btn, 4)  [ particular  user pa jayaga]          |              socket.on(btn, (n)=>{n})  
+
+
+

@@ -1,0 +1,50 @@
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<||--------------( Get and Post  )--------------||>
+
+/*( GET )*/
+--> Used to GET some response
+--> Data sent in query strings(limited,string data and visible in URL)
+----------------------------------------------------------------------------------
+1.used to retrive information from the server.                                  ||
+2.Appends data to the URL,visible to all.                                       ||
+3.limitations on data size by the URL ; less data can be sent(2048 characters). ||
+4.can be cached.                                                                ||
+5.less secure as data is exposed in the URL.                                    ||
+6.ideal for searching and retriving information.                                ||
+----------------------------------------------------------------------------------
+
+/*( POST )*/
+
+--> Used to POST something(for create/ Write / Update)
+--> Data sent via request body(any type of data)
+-----------------------------------------------------------------------
+1.used to send data to the server to create/update a resource.       ||
+2.Includes data in the request body, not displayed in the URL.       ||
+3.no-limitations on data size ; suitable for large amounts of data.  ||
+4.no cached by dafault.                                              ||
+5.More secure as data is concealed within the request body.          ||
+6.ideal for transactions and updating data.                          ||
+-----------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<||--------------( Handling Post requests )--------------||>
+
+Set up POST request route to get some response
+Parse POST request data
+
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+
+
+
+
+
+
+
+
+
+

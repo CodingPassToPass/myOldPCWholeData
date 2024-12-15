@@ -1,0 +1,34 @@
+(1).
+-- image is immutable ( instead you can create a new version of the image that includes the updates).
+-- portable
+-- alldependencies
+-- Docker Image (class:-blueprint or setup or dependencies)(image is immutable)(class)
+-- Docker Container (object:-memory or resources occupies or resources use )(instance)
+-- IMAGE->Container (Container is instance of image)
+-- Docker Hub
+
+(2). CLI commands
+-- docker -v
+-- docer run --help
+-- docker(it gives all information)
+-- docker pull hello-world (first container pull)
+-- docker run hello-world (first container run) ( if you run without pull, then it firstly check locally, and then go to docker hub and pull it, without pull command)
+-- docker push ---image----
+
+mongodb = my-image(take as example)
+-- docker run mongodb [ container stop after closing the terminal]
+-- docker run -d mongodb (detach)[it will also run after close the terminal]
+-- docker run --name gaganshu mongodb(naming of container)[ we can give the name of container]
+-- docker run -p 4000:4000 mongodb [we giving port number]  [ first port is for browser and second port is for container]( means(Example:- 2000:4000) agar browser pa port 2000 use karunga then container ka 4000 port access hoga(second port))
+    --( first port 4000 is the host port, which is the port of the host machine  that will be exposed outside the environment)
+    --( second port 4000 is the container port, which is the port inside container that the application is listening on)
+-- docker run -e PORT=4000 -e MONGO_URI=dfsfd -e name=sfdsdf mongodb(we can give multiple env variables)
+    --( or, docker run -e PORT=4000 ,MONGO_URI=dfsfd, name=sfdsdf mongodb(my-image) )
+    --( or --env as -e)
+
+--docker run --env-file ././fff/env1.txt -e var=3 my-image( we can giveenv file using location)
+--docker run --env-file env1.txt, env1.txt,env1.txt  my-image( we can giveenv file using location)
+
+--docker images( get all available images)
+--docker rmi imageName ( remove image)
+--docker ps (show only running containers)

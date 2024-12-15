@@ -1,0 +1,21 @@
+------  .where() and .equals()                                          //find().where("name").equals("hello");   
+------  .skip()
+------  .limit()
+------  .select=>{ .select("-age") and .select("+age")}[ and also .select("age") for sepcific field find] --but you should do select:false in model      and  User.find().select("_id")
+------  .sort("age") and .sort("name") and .sort({createdAt: -1}) [for time ] and .sort({age:"desc"}) and .sort({name: "desc"}) and .sort({name: 1}) and .sort({name: -1})
+------  $regex
+------   const products = await Product.find().find({price:{$gt:5000,$lt:50000}}).find({name: {$regex:"e",$options:"i"}});
+------   .countDocuments()
+------   .preety()
+------   { name: { $regex: "Hello", $options: "i" } }                    //having name hello or can have upper or lower case
+------   { name: { $regex: "^Hello"} }                                   //starts with hello
+------   { name: { $regex: "Hello$"} }                                   //ends with hello
+------  timestamps(in model)
+------  User.findById( userId, "name age username");                  //i can choose what i want to fetch(like populate)
+------  lean()                                                       (Exmaple:- chatapp( getchatdetails(controller))) //lean is a build-in feature in Mongoose  , a popular object data modeling( ODM) liberary for MONGODB. lean is used to disabled the default mongoose behaviour of wrapping the MongoDB driver's results in mongoose's own wrapper objects.( lean returns the raw ,unwrapped results from the MongoDB driver, which can be useful when working with large datasets).
+------  { name: { $exists: true }}   the field name is exists
+------  { name: { $exists: true, $eq: 22 }}   the field name is exists and eq to 22
+------  { name: { $exists: true, $ne: [] }}   the field name is exists and not equal to []
+------  (used for chatapp search user) :- {$and:  [ {$and: [  {_id: {$nin: allUsersFromMyChats}} , { _id: {$ne: req.user._id}}  ] } , { name: { $regex: name, $options: "i"}}  ] }
+
+

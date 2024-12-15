@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gaganshu fitness</title>
+    <link rel="stylesheet" href="project1basic(beginner).css">
+    <link href="https://fonts.googleapis.com/css?famiy=Baloo+Bhai&display=swap" rel="stylesheet">
+<style>
+    body{
+        font-family: 'Baloo Bhai',cursive;
+        padding:0px;
+        margin: 0px;
+        background-image: url("images/wp5559316-bodybuilder-amoled-wallpapers.jpg");
+        /* background-color: black; */
+        color:white;
+    }
+    .left{
+        /* border:2px solid red; */
+        display:inline-block;
+        position:absolute;
+        top:20px;left:37px;
+        line-height: 14px;
+        font-size: 13px;
+        text-align: center;
+
+    }
+    .left img{
+        width:60px;
+        height:45px;
+        filter:invert(100%);/*it convert black into white and white into black*//*css functions list  downloaded in mobile*/
+    }
+    .mid{
+        /* border:2px solid blue; */
+        display:block;
+        width:38%;
+        margin: 10px auto;
+
+    }
+    .right{
+        /* border:2px solid green; */
+        display:inline-block;
+        position:absolute;
+        top:20px;right:34px;
+
+    }
+    .navbar{
+
+
+    }
+    .navbar li{
+        display:inline-block;
+        padding:10px 12px;
+
+    }
+    .navbar li a{
+        color:white;
+        font-size: 17px;
+        text-decoration: none;
+
+    }
+    .navbar li a:hover,.navbar li a.active{
+        text-decoration: underline;
+        color:gray;
+    }
+    .btn{
+        font-family: 'Baloo Bhai',cursive;
+        padding:10px 14px;
+        margin:5px 9px;
+        color:white;
+        background-color: black;
+        border:2px solid gray;
+        border-radius: 10px;
+        cursor:pointer;
+    }
+    .btn:hover{
+        background-color: rgba(128, 128, 128, 0.541);
+
+    }
+    .container{
+        border:2px solid white;
+        text-align: center;
+        width:36%;
+        margin:60px 40px;
+        padding:25px 44px;
+        border-radius:40px;
+
+    }
+    .form-group input{
+        text-align:center;
+        display:block;
+        width:288px;
+        padding:8px;
+        margin:2px auto;
+        border:2px solid green;
+
+    }
+    #buttonid{
+        width:300px;
+    }
+</style>
+<body>
+    <header class="header">
+        <!--left box for logo-->
+        <div class="left">
+            <img src="images/Gym-Free-PNG-Image.png" alt="gym sign">
+            <div>Gaganshu fitness</div>
+        </div>
+        <!-- mid box for navbar  -->
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="Home" class="active">Home</a></li>
+                <li><a href="About">About Us</a></li>
+                <li><a href="Fitness Calculator">Fitness Calculator</a></li>
+                <li><a href="Contact Us">Contact Us</a></li>
+            </ul>
+        </div>
+        <!-- right box for buttons -->
+        <div class="right">
+                <button class="btn">Call Us Now</button>
+                <button class="btn">Email Us</button>
+        </div>
+    </header>
+    <div class="container">
+        <h1>join the best gym of Delhi now</h1>
+        <form action="inaction.php">
+            <div class="form-group">
+                <label for="nameid">Name</label>
+                <input type="text" name="myname" id="nameid" placeholder="Enter Your Name"> 
+            </div>
+            <div class="form-group">
+                <label  for="numid">Phone No.</label>
+                <input type="number" name="mynum" id="numid" placeholder="Enter Your Phone no.">
+            </div>
+            <div class="form-group">
+                <label  for="adrid">Address</label>
+                <input type="text" name="myadr" id="adrid" placeholder="Enter Your Address">
+            </div>
+            <div class="form-group">
+                <label  for="ageid">Age</label>
+                <input type="number" name="myage" id="ageid" placeholder="Enter Your Age">
+            </div>
+            <input id="buttonid" class="btn" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

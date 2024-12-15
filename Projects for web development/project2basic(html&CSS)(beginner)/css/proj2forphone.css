@@ -1,0 +1,70 @@
+body{
+    background-color: red;
+}
+/*Navigation Bar*/
+#navbar{
+    flex-direction: column;
+}
+#navbar ul li a{
+    padding:0px;
+    font-size:1rem;
+    padding:3px 12px;
+}
+/*Home Section*/
+#home{
+    height:280px;
+    padding:3px 2px;
+}
+#home:before{
+    height:453px;
+}
+#home p{
+    font-size:6px;
+}
+/*Services Section*/
+#services{
+    flex-direction: column;
+}
+#services .box{
+    margin:3px 2px;
+    padding:3px 4px;
+}
+#services .box img{
+    height:200px;
+    width:250px;
+    padding:3px 0px;
+    display:block;
+
+}
+#service .box p{
+    font-family: "Bree Serif", serif;
+}
+/*Client  Section*/
+
+#clients{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+}
+.clients-item{
+    padding:2px 6px;
+    margin:0px 0px;
+}
+#clients img{
+    height:70px;
+}
+/*contact section*/
+
+/* Utility classes */
+.h-primary{
+    font-size:23px;
+}
+.h-secondary{
+  font-size: 16px;
+}
+.btn{
+    font-size:11px;
+    padding:3px 5px;
+}

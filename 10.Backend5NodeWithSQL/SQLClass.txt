@@ -1,0 +1,64 @@
+ <||--------------( Faker )--------------||>
+ (npm install @faker-js/faker)
+
+to generate fake data
+    userid    username    email    password
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <||--------------( MySQL2 )--------------||>
+
+                    (----first mathod----)
+ 
+ (npm install mysql2)
+To connect Node with MySQL
+    userid    username    email    password
+
+
+const mysql = require('mysql2');
+
+const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    database: "develop_app",
+    password: "jarvisdata3000@private",
+  });
+
+   let q = `UPDATE user SET username="${newname}" WHERE id="${id}"`;
+        try{
+          connection.query( q , (err,result) => {
+            console.log("name updated")
+            res.redirect("/user");
+          })
+        }
+        catch(err){
+        console.log(err);
+        res.send("some error in database");
+        }
+        
+    Connection.end(); //To Close Connection
+    node index.js
+    
+
+                    (----second method using ----)
+
+USE COMMAND LINE :- (mysql -u root -p) instead of (/usr/local/mysql/bin/mysql -u root -p) 
+
+                    (----third method ----)
+
+Create schema.sql
+source schema.sql   //in CLI
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+        <||--------------( Setting up Express App )--------------||>
+
+GET/                   Fetch and show total number of users on our app  
+GET/user               Fetch and show(userid,username,email) of all users
+GET/user/:id/edit      To get form to edit the username,based on id. This form will require a password
+PATCH/user/:id         To edit username , if correct password was entered in form.
+POST/user/:id/new      Create Form to Add a new user to the  Database
+DELETE/user/:id/delete Create a Form to Delete a user from database if they enter correct email id and password.
+
+
+
+
+

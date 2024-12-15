@@ -1,0 +1,205 @@
+html{
+    scroll-behavior: smooth;
+}
+/*CSS Reset*/
+*{
+    margin:0px;
+    padding:0px;
+}
+/*Navigation Bar*/
+#navbar{
+    display: flex;
+    position:sticky;
+    align-items: center;
+    top:0px;
+
+}
+/*Navigation Bar: Logo and Image  */
+#logo{
+    margin:10px 34px;
+
+}
+#logo img{
+    margin: 3px 6px;
+    height:70px;
+    width:70px;
+    border-radius:50%
+}
+/*Navigation Bar: List Styling*/
+#navbar ul{
+    display:flex;
+}
+#navbar::before{
+    content:" ";
+    background-color: black;
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0px;left:0px;
+    z-index:-1;
+    opacity: 0.4;
+}
+#navbar ul li{
+    list-style-type: none;
+    font-size: 22px;
+    font-family: "Baloo Bhai 2", sans-serif;
+}
+#navbar ul li a{
+    color:white;
+    display:block;
+    padding:9px 34px ;
+    border-radius: 20px;
+    text-decoration: none;
+}
+#navbar ul li a:hover{
+    color:black;
+    background-color: white;
+}
+/*Home Section*/
+#home{
+    display: flex;
+    flex-direction: column;
+    padding:3px 282px;
+    height:538px;
+    justify-content: center;
+    align-items: center;
+}
+#home::before{
+    content:" ";
+    background: url("imagesforproject2basic(beginner)/hamburger-494706_1920.jpg") no-repeat center center/cover;
+    position:absolute;
+    top:0px;left:0px;
+    height:100%;
+    width:100%;
+    z-index: -1;
+    opacity:0.9;
+
+}
+#home h1{
+    color:black;
+    text-align:center;
+    font-family: "Bree Serif", serif;
+}
+#home p{
+    color:black;
+    text-align:center;
+    font-family: "Bree Serif", serif;
+}
+
+/*Services Section*/
+#services{
+    margin:34px;
+    display:flex;
+}
+#services .box{
+    border:2px solid gray;
+    margin:7px 5px;
+    padding:7px 14px;
+    border-radius:18px;
+    background-color: rgb(228, 225, 225);
+}
+#services .box img{
+    height:230px;
+    width:368px;
+    padding:3px 0px;
+    margin:auto;
+    display:block;
+
+}
+#service .box p{
+    font-family: "Bree Serif", serif;
+}
+
+/*Client  Section*/
+
+#clients-section{
+    height:322px;
+    position:relative;
+}
+#clients-section::before{
+    content:" ";
+    background:url("imagesforproject2basic(beginner)/salad-2068220_1920.jpg") no-repeat top right/cover;
+    height:100%;
+    width:100%;
+    position:absolute;
+    z-index:-1;
+    opacity:0.4;
+
+}
+#clients{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+.clients-item{
+    padding:24px 34px;
+    margin:4px 0px;
+}
+#clients img{
+    height:120px;
+}
+/*contact section*/
+#contact{
+    position:relative;
+
+}
+#contact::before{
+    content :" ";
+    background:url("imagesforproject2basic(beginner)/Contact\ us\ banner\ .7a073f8d0667605662b2.jpg") no-repeat left center/cover;   
+    height:100%;
+    width:100%;
+    position:absolute;
+    z-index:-1;
+    opacity:0.8; 
+}
+#contact-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#contact-box form{
+    width:52%;
+}
+#contact-box label{
+    font-size:1.3em;
+    font-family: "Bree Serif", serif;
+}
+#contact-box input,#contact-box textarea{
+    width:100%;
+    font-family: "Bree Serif", serif;
+    padding:3px 4px;
+    border-radius:6px;
+    color:black;
+    border:1px solid black;
+    background-color:rgb(236, 231, 231);
+}
+/*End footer*/
+footer{
+    background-color: black;
+    color:white;
+    padding:5px 0px;
+}
+/* Utility classes */
+.h-primary{
+      font-size:3em;
+      padding:12px;
+      font-family: "Bree Serif", serif;
+}
+.h-secondary{
+    font-size: 2em;
+    padding:12px;
+    font-family: "Bree Serif", serif;
+}
+.btn{
+    padding:11px 22px;
+    margin:6px 0px;
+    background-color: brown;
+    color:white;
+    font-size:19px;
+    border-radius: 20px;
+    cursor:pointer;
+}
+.center{
+    text-align:center;
+}
